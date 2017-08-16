@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Determinante por gauss</title>
+	<script type="text/javascript" src="script.js"></script>
+	<link rel="stylesheet" type="text/css" href="Style.css">
+</head>
+<body>
+	<div class="container" id="container">
+		<div class="entrada">
+			<input type="text" id="entradaN">
+			<input type="button" onclick="generarMatriz()" value="Generar Matriz" id="btnGenerar"> <br>
+		</div>
+		<div id="botonSolucion" >
+			<input onclick="llenarSolucionar()" type="button" id="btnSol" value="Calcular determinante"></input>
+		</div>
+		<div id="contenedorSol"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+html{
+	font-size: 16px;
+}
+
+body{
+	background-color: #F2F3F4;
+}
+
+.container{
+	padding: 1em;
+	border-radius: .5em;
+	margin: auto 0;
+	text-align: center;
+	background-color: #7FB3D5;
+}
+
+#entradaN{
+	width: 1.5em;
+}
+
+input[id*="input"]{
+	width: 1.5em;
+}
+
+.entrada{
+	margin-bottom: 2em;
+}
+
+#btnSol{
+	margin-top: 2em;
+	display: none;
+}
+
+#contenedorSol{
+	color: white;
+}
