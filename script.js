@@ -71,16 +71,21 @@ function llenarSolucionar(){
 	for(i=0; i<n; i++){
 		det = det*matriz[i][i];
 	}
+	
+	var a = (Math.pow(n,2)*(n-1))-(n*(n-2)*(n-1))-((2*n)*(n-1))+(((n-2)*(n-1)*((2*n)-3))/6)+((n-2)*(n-1))+(n-1);
+	var b = (n*(n-1))-(n-1)-(((n-2)*(n-1))/2);
+	var formula = (16*a)+(5*b)+(6*(n-2))+3;
 
 	det=det*sign;
 
-	mostrarEnPantalla(cont, matriz, det);
+	mostrarEnPantalla(cont, matriz, det, formula);
 }
 
-function mostrarEnPantalla(cont, matrizReducida, det){
+function mostrarEnPantalla(cont, matrizReducida, det, form){
 	const container = document.getElementById("contenedorSol");
 	var matriz = document.createElement("div");
 	var contDiv = document.createElement("div");
+	var formDiv = document.createElement("div");
 	var detDiv = document.createElement("div");
 	var datos = "matriz reducida <br>";
 
@@ -89,7 +94,10 @@ function mostrarEnPantalla(cont, matrizReducida, det){
 	matriz.id = "divMatrizRedu";
 	contDiv.style.display = "inline-block";
 	contDiv.style.margin = "1em"
-	contDiv.id = "divId"
+	contDiv.id = "divCont"
+	formDiv.style.display = "inline-block";
+	formDiv.style.margin = "1em"
+	formDiv.id = "diForm"
 	detDiv.style.display = "inline-block";
 	detDiv.style.margin = "1em"
 	detDiv.id = "divDet"
@@ -103,11 +111,28 @@ function mostrarEnPantalla(cont, matrizReducida, det){
 		}
 		datos = datos + "<br>";
 	}
-	container.appendChild(matriz);
-	contDiv.innerHTML = "Operaciones elementales por contador: <br>" + cont;
-	detDiv.innerHTML = "Determinante de la matriz: <br>" + det;
+	
+	if(isNaN(det)){
+		det = "No existe el determinante";
+		contDiv.innerHTML = "Operaciones elementales por contador: <br>" + cont;
+		formDiv.innerHTML = "Operaciones elementales por formula: <br>" + form;
+		detDiv.innerHTML = "Determinante de la matriz: <br>" + det;
 
-	container.appendChild(contDiv);
-	container.appendChild(detDiv);
+		container.appendChild(contDiv);
+		container.appendChild(formDiv);
+		container.appendChild(detDiv);
+		
+	}else{
+		container.appendChild(matriz);
+		contDiv.innerHTML = "Operaciones elementales por contador: <br>" + cont;
+		formDiv.innerHTML = "Operaciones elementales por formula: <br>" + form;
+		detDiv.innerHTML = "Determinante de la matriz: <br>" + det;
+
+		container.appendChild(contDiv);
+		container.appendChild(formDiv);
+		container.appendChild(detDiv);
+	}
+	
+	
 
 }
